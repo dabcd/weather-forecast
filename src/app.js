@@ -73,7 +73,7 @@ function handleSubmit(event) {
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  if (this.classList.value != "active") {
+  if (!(fahrenheitLink.classList.contains("active"))) {
     // console.log(this.classList.value);
     celsiusLink.classList.remove("active");
     fahrenheitLink.classList.add("active");
@@ -86,7 +86,7 @@ function displayFahrenheitTemperature(event) {
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
-  if (this.classList.value != "active") {
+  if (!(celsiusLink.classList.contains("active"))) {
     // console.log(this.classList.value);
     celsiusLink.classList.add("active");
     fahrenheitLink.classList.remove("active");
@@ -127,6 +127,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
+// Initial values
 let tempUnits = "metric";
 let cityGlobal = "London";
 
@@ -138,4 +139,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-search("London");
+search(cityGlobal);
